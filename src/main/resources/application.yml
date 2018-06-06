@@ -1,0 +1,4 @@
+say: propertyConditional
+my:
+  property1: propvalue1
+  property2: propvalue2
