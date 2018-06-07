@@ -15,13 +15,29 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      show-sql: true
+
   datasource:
-    url: jdbc:mysql://localhost:3306/bootlearn
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
-    schema: classpath:database/create-db.sql
-    data: classpath:database/seed-data.sql
+    security:
+      url: jdbc:mysql://localhost:3306/security
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+
+    orders:
+      url: jdbc:mysql://localhost:3306/order
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+
+
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/bootlearn
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+#    schema: classpath:database/create-db.sql
+#    data: classpath:database/seed-data.sql
 
 mybatis:
   type-aliases-package: ru.inbox.savinov_vu.utils.domain

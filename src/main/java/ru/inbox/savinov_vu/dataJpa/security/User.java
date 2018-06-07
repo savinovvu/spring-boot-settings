@@ -1,4 +1,4 @@
-package ru.inbox.savinov_vu.dataJpa;
+package ru.inbox.savinov_vu.dataJpa.security;
 
 
 import javax.persistence.*;
