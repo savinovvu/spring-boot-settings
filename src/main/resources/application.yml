@@ -10,3 +10,12 @@ logging:
 #    org.hibernate: ERROR
 #    ru.inbox.savinov_vu.logging: DEBUG
 #  path: ./log/app.log
+
+spring:
+  datasource:
+    url: jdbc:hsqldb:mem:bd
+    username: sa
+    password:
+    driver-class-name: org.hsqldb.jdbcDriver
+    schema: classpath:database/create-db.sql
+    data: classpath:database/seed-data.sql
