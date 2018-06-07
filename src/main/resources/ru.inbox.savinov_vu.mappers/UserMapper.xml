@@ -1,0 +1,30 @@
+<!--
+xml config example
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+&lt;!&ndash;namespace must be like path to UserMapper interface&ndash;&gt;
+<mapper namespace="ru.inbox.savinov_vu.mybatis.mappers.UserMapper">
+
+    <resultMap id="UserResultMap" type="User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+    </resultMap>
+
+    &lt;!&ndash;id it is method name in UserMapper interface&ndash;&gt;
+    <select id="findAllUsers" resultMap="UserResultMap">
+        select id, name, email from users
+    </select>
+
+    <select id="findUserById" resultMap="UserResultMap">
+        select id, name, email from users WHERE id=#{id}
+    </select>
+
+    <insert id="insertUser" parameterType="User" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into users(name,email) values(#{name},#{email})
+    </insert>
+</mapper>
+
+-->

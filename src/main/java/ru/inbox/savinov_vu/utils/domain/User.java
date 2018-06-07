@@ -1,4 +1,4 @@
-package ru.inbox.savinov_vu.jdbcTemplate;
+package ru.inbox.savinov_vu.utils.domain;
 
 public class User {
 

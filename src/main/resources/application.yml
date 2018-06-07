@@ -19,3 +19,7 @@ spring:
     driver-class-name: org.hsqldb.jdbcDriver
     schema: classpath:database/create-db.sql
     data: classpath:database/seed-data.sql
+
+mybatis:
+  type-aliases-package: ru.inbox.savinov_vu.utils.domain
+#  mapper-locations: classpath*:/mappers/*.xml path to xml config

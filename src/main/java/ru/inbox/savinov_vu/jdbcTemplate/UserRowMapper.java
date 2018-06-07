@@ -2,6 +2,7 @@ package ru.inbox.savinov_vu.jdbcTemplate;
 
 
 import org.springframework.jdbc.core.RowMapper;
+import ru.inbox.savinov_vu.utils.domain.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
