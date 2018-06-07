@@ -12,11 +12,14 @@ logging:
 #  path: ./log/app.log
 
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
   datasource:
-    url: jdbc:hsqldb:mem:bd
-    username: sa
-    password:
-    driver-class-name: org.hsqldb.jdbcDriver
+    url: jdbc:mysql://localhost:3306/bootlearn
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
     schema: classpath:database/create-db.sql
     data: classpath:database/seed-data.sql
 
