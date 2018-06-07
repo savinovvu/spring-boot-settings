@@ -2,3 +2,11 @@ say: propertyConditional
 my:
   property1: propvalue1
   property2: propvalue2
+
+logging:
+  config: classpath:logging/logback.xml
+#  level:
+#    org.springframework.web: INFO
+#    org.hibernate: ERROR
+#    ru.inbox.savinov_vu.logging: DEBUG
+#  path: ./log/app.log
