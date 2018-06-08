@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.inbox.savinov_vu.dataJpa.order.Order;
 import ru.inbox.savinov_vu.dataJpa.security.User;
 import ru.inbox.savinov_vu.dataJpa.security.UserRepository;
 

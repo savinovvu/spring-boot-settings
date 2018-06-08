@@ -1,3 +1,11 @@
+# http://localhost:9090/demo/app/
+#server:
+#  port: 9090
+#  servlet:
+#    context-path: /demo
+#    path:/app
+
+
 say: propertyConditional
 my:
   property1: propvalue1
@@ -12,33 +20,50 @@ logging:
 #  path: ./log/app.log
 
 spring:
+#  resources:
+#    static-locations: classpath:static
   jpa:
     hibernate:
       ddl-auto: update
       show-sql: true
 
   datasource:
-    security:
-      url: jdbc:mysql://localhost:3306/security
-      username: root
-      password: root
-      driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bootlearn
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    schema: classpath:database/create-db.sql
+    data: classpath:database/seed-data.sql
 
-    orders:
-      url: jdbc:mysql://localhost:3306/order
-      username: root
-      password: root
-      driver-class-name: com.mysql.jdbc.Driver
+#file upload params
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 20MB
+      file-size-threshold: 5MB
 
+  messages:
+    basename: classpath:i18n/messages
+    encoding: UTF-8
+    fallback-to-system-locale: true
 
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/bootlearn
-#    username: root
-#    password: root
-#    driver-class-name: com.mysql.jdbc.Driver
-#    schema: classpath:database/create-db.sql
-#    data: classpath:database/seed-data.sql
 
 mybatis:
   type-aliases-package: ru.inbox.savinov_vu.utils.domain
 #  mapper-locations: classpath*:/mappers/*.xml path to xml config
+
+#server:
+#  tomcat:
+#    accesslog.directory: logs # Directory in which log files are created.
+#    accesslog.enabled: false # Enable access log.
+#    accesslog.file-date-format: .yyyy-MM-dd # Date format to place in log file name.
+#    basedir: # Tomcat base directory. If not specified a temporary directory will be used.
+#    max-connections: # Maximum number of connections that the server will accept and process at any given time.
+#    max-http-header-size: 0 # Maximum size in bytes of the HTTP message header.
+#    max-http-post-size: 0 # Maximum size in bytes of the HTTP post content.
+#    max-threads: 0 # Maximum amount of worker threads.
+#    min-spare-threads: 0 # Minimum amount of worker threads.
+#    port-header: X-Forwarded-Port # Name of the HTTP header used to override the original port value.
+
+
