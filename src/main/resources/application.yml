@@ -27,16 +27,16 @@ spring:
       base-path: /api
   jpa:
     hibernate:
-      ddl-auto: create-drop
-      show-sql: true
+      ddl-auto: update
 
   datasource:
-    url: jdbc:mysql://localhost:3306/bootlearn
+    url: jdbc:mysql://localhost:3306/bootlearnsecurity
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-    schema: classpath:database/create-db.sql
-    data: classpath:database/seed-data.sql
+    initialization-mode: always
+#    schema: classpath:database/create-db.sql
+#    data: classpath:data.sql
 
 #file upload params
   servlet:
@@ -46,14 +46,22 @@ spring:
       max-request-size: 20MB
       file-size-threshold: 5MB
 
+
   messages:
     basename: classpath:i18n/messages
     encoding: UTF-8
     fallback-to-system-locale: true
 
+#  security:
+#    user:
+#      name: admin
+#      password: secret
+#      roles: USER, ADMIN
 
-mybatis:
-  type-aliases-package: ru.inbox.savinov_vu.utils.domain
+
+
+#mybatis:
+#  type-aliases-package: ru.inbox.savinov_vu.utils.domain
 #  mapper-locations: classpath*:/mappers/*.xml path to xml config
 
 #server:
