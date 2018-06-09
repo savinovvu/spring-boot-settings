@@ -11,6 +11,16 @@
 <div sec:authorize="hasRole('ROLE_ADMIN')">
   <h3>You will see this only if you are ADMIN</h3>
   <p><a th:href="@{/admin/home}">Admin Home</a></p>
+<!--
+csfr params for post cors method
+  <form method="post" action="/users">
+    <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}" />
+  </form>-->
+
+
 </div>
 </body>
 </html>
