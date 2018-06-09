@@ -14,7 +14,7 @@ public class AdminRestController {
     @Autowired
     private UserService userService;
 
-
+//AND, OR, NOT
     @PreAuthorize("hasRole('ADMIN') OR hasRole('USER') AND isFullyAuthenticated()")
     @PutMapping("/admin/users/{id}")
     public User updateUser(@RequestBody User user) {

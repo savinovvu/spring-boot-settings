@@ -30,6 +30,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private RestAuthenticationSuccessHandler authenticationSuccessHandler;
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -46,7 +49,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+//rest security config
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/", "/register", "/forgotPassword").permitAll()
+                .antMatchers("/admin/").hasRole("ADMIN")
+                .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(
+                        new Http401AuthenticationEntryPoint("Basic realm=\"MyApp\""))
+                .and()
+                .formLogin()
+                .permitAll()
+                .loginProcessingUrl("/login")
+                .successHandler(authenticationSuccessHandler)
+                .failureHandler(new SimpleUrlAuthenticationFailureHandler())
+                .and()
+                .logout()
+                .permitAll()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessHandler(
+                        new HttpStatusReturningLogoutSuccessHandler());
+
+  /*
+config for page logic security
+  http.authorizeRequests()
                 .antMatchers("/resources/", "/webjars/", "assets/").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
@@ -69,15 +97,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .rememberMe()
                 .tokenRepository(persistentTokenRepository())
-                /*
+                *//*
                 customization remember-me
                 .key("my-secure-key")
                 .rememberMeCookieName("my-remember-me-cookie")
-                .tokenValiditySeconds(24*60*60)*/
+                .tokenValiditySeconds(24*60*60)*//*
 
 
                 .and()
-                .exceptionHandling().accessDeniedPage("/accessDenied");
+                .exceptionHandling().accessDeniedPage("/accessDenied");*/
     }
 
 
