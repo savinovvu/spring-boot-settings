@@ -1,0 +1,13 @@
+spring:
+#    security:
+#      user:
+#        name: admin
+#        password: admin123
+#        roles: USER,ADMIN
+
+    datasource:
+      url: jdbc:mysql://localhost:3306/bootlearnsecurity
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      initialization-mode: always

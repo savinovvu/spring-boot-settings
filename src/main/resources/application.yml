@@ -51,6 +51,16 @@ spring:
     basename: classpath:i18n/messages
     encoding: UTF-8
     fallback-to-system-locale: true
+#    turn off security for spring boot actuator
+#management:
+#  security:
+#    enabled: false
+
+info:
+  app:
+    name: Spring Boot example
+    description: description app
+    version: 1.0.0
 
 #  security:
 #    user:
