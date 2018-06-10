@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: mysql://prodmysqlsrv:3306/myapp
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    initialization-mode: always
